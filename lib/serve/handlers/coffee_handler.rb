@@ -11,6 +11,10 @@ module Serve #:nodoc:
       'text/javascript'
     end
 
+    def compiled_extension
+      'js'
+    end
+    
     def layout?
       false
     end

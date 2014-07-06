@@ -32,6 +32,7 @@ module Serve #:nodoc:
     end
 
     attr_reader :extension
+
     def initialize(root_path, template_path, extension)
       @root_path = root_path
       @template_path = template_path
@@ -48,6 +49,11 @@ module Serve #:nodoc:
 
     def layout?
       true
+    end
+
+    # override to change the exported extension
+    def compiled_extension
+      @extension
     end
     
     def parse(input, context)

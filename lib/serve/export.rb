@@ -45,10 +45,9 @@ module Serve
       end
       
       def compile_compass_sass
-        if rackified?
-          `compass compile -c '#{@input}/compass.config' '#{@input}'`
-          log_action 'compiled', 'sass files'
-        end
+        return unless rackified?
+        `compass compile -c '#{@input}/compass.config' '#{@input}'`
+        log_action 'compiled', 'sass files'
       end
       
       def compile_views
@@ -149,7 +148,6 @@ module Serve
       def rackified?
         File.directory?("#{@input}/views") && File.directory?("#{@input}/public")
       end
-      
   end
   
   def self.export(options={})
